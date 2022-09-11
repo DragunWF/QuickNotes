@@ -1,0 +1,15 @@
+{
+  "name": "quicknotes",
+  "version": "1.0.0",
+  "description": "A personal note taking app.",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "DragunWF",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^20.1.3"
+  }
+}
