@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../font/Inter-Regular.ttf");
+}
+
 html {
   font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter";
 }
 
 /* Objects */
@@ -21,11 +30,23 @@ html {
 }
 
 .buttons {
-  gap: 15px;
+  gap: 1.75rem;
+}
+
+.buttons h1 {
+  margin-bottom: 0.05rem;
+  padding-bottom: 0;
+}
+
+.buttons h2 {
+  padding-top: 0;
+  padding-bottom: 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 
 .buttons button {
   font-weight: bold;
   padding: 1rem;
-  letter-spacing: 0.45rem;
+  letter-spacing: 0.25rem;
 }
