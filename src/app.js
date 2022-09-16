@@ -1,21 +1,18 @@
 const { app, BrowserWindow, Menu, ipcMain } = require("electron");
-const path = require("path");
 const GeneralTool = require("./utils/generalTool");
-
-let mainWindow;
+const Windows = require("./utils/windows");
+const menuTemplate = require("./utils/templates");
 
 app.on("ready", () => {
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-    },
-  });
-  mainWindow.loadURL(GeneralTool.getPagePath("index"));
+  Windows.createMainMenu();
+  const windowMenu = Menu.buildFromTemplate(menuTemplate);
+  Menu.setApplicationMenu(windowMenu);
 });
 
 app.on("window-all-closed", () => {
+  app.quit();
+});
+
+ipcMain.on("quit", () => {
   app.quit();
 });
