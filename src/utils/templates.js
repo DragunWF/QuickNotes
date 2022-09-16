@@ -1,4 +1,4 @@
-const { app } = require("electron");
+const Windows = require("./windows");
 
 const menuTemplate = [
   {
@@ -33,6 +33,17 @@ const menuTemplate = [
       },
       {
         role: "reload",
+      },
+    ],
+  },
+  {
+    label: "Miscellaneous",
+    submenu: [
+      {
+        label: "Secret",
+        click() {
+          Windows.createRickRollWindow();
+        },
       },
     ],
   },
