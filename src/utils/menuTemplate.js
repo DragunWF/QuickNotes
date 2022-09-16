@@ -40,6 +40,12 @@ const menuTemplate = [
     label: "Miscellaneous",
     submenu: [
       {
+        label: "Source Code",
+        click() {
+          Windows.createSourceCodeWindow();
+        },
+      },
+      {
         label: "Secret",
         click() {
           Windows.createRickRollWindow();
