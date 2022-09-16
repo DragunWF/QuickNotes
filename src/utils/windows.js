@@ -11,10 +11,16 @@ class Windows {
     },
   };
   static #mainWindow;
+  static #rickRollWindow;
 
   static createMainMenu() {
     this.#mainWindow = new BrowserWindow(this.#defaultSettings);
     this.#mainWindow.loadURL(GeneralTool.getPagePath("index"));
+  }
+
+  static createRickRollWindow() {
+    this.#rickRollWindow = new BrowserWindow(this.#defaultSettings);
+    this.#rickRollWindow.loadURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
   }
 }
 
