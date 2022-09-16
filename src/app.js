@@ -13,6 +13,7 @@ app.on("ready", () => {
       contextIsolation: false,
     },
   });
+  mainWindow.loadURL(GeneralTool.getPagePath("index"));
 });
 
 app.on("window-all-closed", () => {
