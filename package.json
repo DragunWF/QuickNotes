@@ -2,7 +2,7 @@
   "name": "quicknotes",
   "version": "1.0.0",
   "description": "A personal note taking app.",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "electron ."
   },
