@@ -22,21 +22,6 @@ const menuTemplate = [
     ],
   },
   {
-    label: "Developer Tools",
-    submenu: [
-      {
-        label: "Toggle DevTools",
-        accelerator: "Ctrl+I",
-        click(item, focusedWindow) {
-          focusedWindow.toggleDevTools();
-        },
-      },
-      {
-        role: "reload",
-      },
-    ],
-  },
-  {
     label: "Miscellaneous",
     submenu: [
       {
@@ -50,6 +35,21 @@ const menuTemplate = [
         click() {
           Windows.createRickRollWindow();
         },
+      },
+    ],
+  },
+  {
+    label: "Developer Tools",
+    submenu: [
+      {
+        label: "Toggle DevTools",
+        accelerator: "Ctrl+I",
+        click(item, focusedWindow) {
+          focusedWindow.toggleDevTools();
+        },
+      },
+      {
+        role: "reload",
       },
     ],
   },
