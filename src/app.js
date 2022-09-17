@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain } = require("electron");
+const { app, Menu, ipcMain } = require("electron");
 const GeneralTool = require("./utils/generalTool");
 const Windows = require("./utils/windows");
 const menuTemplate = require("./utils/menuTemplate");
