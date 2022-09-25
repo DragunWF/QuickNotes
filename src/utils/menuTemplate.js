@@ -8,10 +8,16 @@ const menuTemplate = [
       {
         label: "Notes",
         accelerator: "Ctrl+N",
+        click() {
+          Windows.changeCurrentWindow("index");
+        },
       },
       {
         label: "Stats",
         accelerator: "Ctrl+S",
+        click() {
+          Windows.changeCurrentWindow("stats");
+        },
       },
       {
         label: "Quit",
