@@ -29,6 +29,11 @@ class Windows {
     this.#sourceCodeWindow.loadURL("https://github.com/DragunWF/QuickNotes");
   }
 
+  static changeCurrentWindow(page) {
+    const currentWindow = BrowserWindow.getFocusedWindow();
+    currentWindow.loadURL(GeneralTool.getPagePath(page));
+  }
+
   static #createDefaultWindow() {
     return new BrowserWindow(this.#defaultSettings);
   }
