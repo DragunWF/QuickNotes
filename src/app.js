@@ -9,6 +9,7 @@ app.on("ready", () => {
   DatabaseTool.onReady();
   const windowMenu = Menu.buildFromTemplate(menuTemplate);
   Menu.setApplicationMenu(windowMenu);
+  console.log("Application is now running!");
 });
 
 app.on("window-all-closed", () => {
