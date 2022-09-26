@@ -52,6 +52,7 @@ class Windows {
           data = DatabaseTool.getNoteCategories();
           break;
         case "stats":
+          data = DatabaseTool.getStats();
           break;
       }
       setTimeout(async () => {
