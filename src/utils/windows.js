@@ -42,7 +42,7 @@ class Windows {
     this.#changeCurrentWindow("note", "load:note", noteID);
   }
 
-  static async #changeCurrentWindow(page, loadSignal = null, id = null) {
+  static #changeCurrentWindow(page, loadSignal = null, id = null) {
     const currentWindow = BrowserWindow.getFocusedWindow();
     let data = null;
     currentWindow.loadURL(GeneralTool.getPagePath(page));
