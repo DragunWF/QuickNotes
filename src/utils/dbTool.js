@@ -16,6 +16,14 @@ class DatabaseTool {
     );
   }
 
+  static async getNoteCategories() {
+    return await this.#getTableContents("categories");
+  }
+
+  static async getNote(noteID) {
+    return await this.#getTableContents(true, noteID);
+  }
+
   static async #getTableContents(tableName, whereClause = false, id = null) {
     let query = `SELECT * FROM ${tableName}`;
     if (whereClause) query += ` WHERE note_id = ${id}`;
