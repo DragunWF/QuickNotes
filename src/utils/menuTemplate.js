@@ -50,7 +50,7 @@ const menuTemplate = [
     submenu: [
       {
         label: "Toggle DevTools",
-        accelerator: "Ctrl+I",
+        accelerator: "f12",
         click(item, focusedWindow) {
           focusedWindow.toggleDevTools();
         },
