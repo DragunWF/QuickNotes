@@ -11,7 +11,23 @@ class DatabaseTool {
         if (err) return console.error(err.message);
       }
     );
-    if (this.#db) console.log("Database is now online!");
+    console.log(
+      this.#db ? "Database is now running!" : "Database failed to start!"
+    );
+  }
+
+  static async #getTableContents(tableName, whereClause = false, id = null) {
+    let query = `SELECT * FROM ${tableName}`;
+    if (whereClause) query += ` WHERE note_id = ${id}`;
+
+    const rows = new Promise((resolve, reject) => {
+      this.#db.all(query, (err, rows) => {
+        if (err) return console.error(err.message);
+        resolve(rows);
+      });
+    });
+
+    return await rows;
   }
 }
 
