@@ -12,6 +12,7 @@ function createEvents() {
 ipcRenderer.on("load:categories", async (event, data) => {
   const categoryData = await data;
   $("#loadingText").remove();
+
   if (categoryData.length) {
     for (let i = 0; i < categoryData.length; i++) {
       categories.append(

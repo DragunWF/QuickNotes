@@ -46,8 +46,10 @@ class Windows {
     const currentWindow = BrowserWindow.getFocusedWindow();
     let data = null;
     currentWindow.loadURL(GeneralTool.getPagePath(page));
+
     if (loadSignal) {
       const signalType = loadSignal.split(":")[1];
+
       switch (signalType) {
         case "note":
           data = DatabaseTool.getNote("note_id", id);
@@ -62,6 +64,7 @@ class Windows {
           data = DatabaseTool.getStats();
           break;
       }
+
       setTimeout(async () => {
         currentWindow.webContents.send(loadSignal, await data);
       }, 325);
