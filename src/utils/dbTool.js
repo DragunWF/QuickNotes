@@ -16,12 +16,24 @@ class DatabaseTool {
     );
   }
 
+  static async createNoteCategory(name) {
+    const query = "INSERT INTO categories (name) VALUES (?)";
+    this.#db.run(query, [name], (err) => {
+      if (err) console.error(err.message);
+      else console.log(`Category "${name}" has been inserted!`);
+    });
+  }
+
   static async getNoteCategories() {
     return await this.#getTableContents("categories");
   }
 
   static async getNote(noteID) {
     return await this.#getTableContents(true, noteID);
+  }
+
+  static async getStats() {
+    return await this.#getTableContents("stats");
   }
 
   static async #getTableContents(tableName, whereClause = false, id = null) {
