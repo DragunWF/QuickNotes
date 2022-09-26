@@ -1,4 +1,4 @@
-const { BrowserWindow, ipcMain } = require("electron");
+const { BrowserWindow } = require("electron");
 const GeneralTool = require("./generalTool");
 const DatabaseTool = require("./dbTool");
 
@@ -38,9 +38,10 @@ class Windows {
     this.#changeCurrentWindow("note", "load:note");
   }
 
-  static #changeCurrentWindow(page, loadSignal = null, noteID = null) {
+  static async #changeCurrentWindow(page, loadSignal = null, noteID = null) {
     const currentWindow = BrowserWindow.getFocusedWindow();
     let data = null;
+    currentWindow.loadURL(GeneralTool.getPagePath(page));
     if (loadSignal) {
       const signalType = loadSignal.split(":")[1];
       switch (signalType) {
@@ -53,9 +54,10 @@ class Windows {
         case "stats":
           break;
       }
-      currentWindow.webContents.send(loadSignal, data);
+      setTimeout(async () => {
+        currentWindow.webContents.send(loadSignal, await data);
+      }, 325);
     }
-    currentWindow.loadURL(GeneralTool.getPagePath(page));
   }
 
   static #createDefaultWindow() {
