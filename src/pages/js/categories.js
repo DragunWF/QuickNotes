@@ -5,8 +5,7 @@ const categories = $(".category-list");
 
 function createEvents() {
   $(".category").click((event) => {
-    const id = event.target.id;
-    console.log(`Entered note with id: ${id}`);
+    ipcRenderer.send("window:category", event.target.id);
   });
 }
 
