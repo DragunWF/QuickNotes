@@ -7,17 +7,13 @@ const statsBtn = $("#statsBtn");
 const quitBtn = $("#quitBtn");
 
 notesBtn.click(() => {
-  switchPageURL("categories");
+  ipcRenderer.send("window:categories")
 });
 
 statsBtn.click(() => {
-  switchPageURL("stats");
+  ipcRenderer.send("window:stats");
 });
 
 quitBtn.click(() => {
   ipcRenderer.send("quit");
 });
-
-function switchPageURL(htmlFile) {
-  location.href = `${htmlDirPath}${htmlFile}.html`;
-}
