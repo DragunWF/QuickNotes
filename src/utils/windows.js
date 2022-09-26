@@ -34,8 +34,8 @@ class Windows {
     this.#changeCurrentWindow("categories", "load:categories");
   }
 
-  static loadCategoryWindow(categoryName) {
-    this.#changeCurrentWindow("category", "load:category", categoryName);
+  static loadCategoryWindow(categoryID) {
+    this.#changeCurrentWindow("category", "load:category", categoryID);
   }
 
   static loadNoteWindow(noteID) {
@@ -53,7 +53,7 @@ class Windows {
           data = DatabaseTool.getNote("note_id", id);
           break;
         case "category":
-          data = DatabaseTool.getCategory("name", id);
+          data = DatabaseTool.getCategory("category_id", id);
           break;
         case "categories":
           data = DatabaseTool.getNoteCategories();

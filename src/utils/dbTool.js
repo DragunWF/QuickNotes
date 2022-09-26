@@ -32,12 +32,12 @@ class DatabaseTool {
     return await this.#getTableContents("stats");
   }
 
-  static async getCategory(categoryName) {
+  static async getCategory(categoryID) {
     return await this.#getTableContents(
       "category",
       true,
       filterColumn,
-      categoryName
+      categoryID
     );
   }
 
