@@ -28,17 +28,31 @@ class DatabaseTool {
     return await this.#getTableContents("categories");
   }
 
-  static async getNote(noteID) {
-    return await this.#getTableContents("notes", true, noteID);
-  }
-
   static async getStats() {
     return await this.#getTableContents("stats");
   }
 
-  static async #getTableContents(tableName, whereClause = false, id = null) {
+  static async getCategory(categoryName) {
+    return await this.#getTableContents(
+      "category",
+      true,
+      filterColumn,
+      categoryName
+    );
+  }
+
+  static async getNote(noteID) {
+    return await this.#getTableContents("notes", true, noteID);
+  }
+
+  static async #getTableContents(
+    tableName,
+    whereClause = false,
+    filterColumn = null,
+    id = null
+  ) {
     let query = `SELECT * FROM ${tableName}`;
-    if (whereClause) query += ` WHERE note_id = ${id}`;
+    if (whereClause) query += ` WHERE ${filterColumn} = ${id}`;
 
     const rows = new Promise((resolve, reject) => {
       this.#db.all(query, (err, rows) => {
