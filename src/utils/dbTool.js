@@ -29,7 +29,7 @@ class DatabaseTool {
   }
 
   static async getNote(noteID) {
-    return await this.#getTableContents(true, noteID);
+    return await this.#getTableContents("notes", true, noteID);
   }
 
   static async getStats() {

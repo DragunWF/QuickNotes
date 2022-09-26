@@ -25,9 +25,9 @@ ipcMain.on("window:categories", () => {
   console.log("Entered categories window!");
 });
 
-ipcMain.on("window:note", () => {
-  Windows.loadNoteWindow();
-  console.log("Entered a note window!");
+ipcMain.on("window:note", (event, noteID) => {
+  Windows.loadNoteWindow(noteID);
+  console.log(`Entered a note window! (ID:${noteID})`);
 });
 
 ipcMain.on("quit", () => {
