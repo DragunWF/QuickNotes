@@ -50,3 +50,19 @@ body {
   padding: 1rem;
   letter-spacing: 0.25rem;
 }
+
+.category-list {
+  gap: 1.5rem;
+}
+
+/* .category-list button {
+
+} */
+
+.note-category-wrapper ul,
+.note-category-wrapper li {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
