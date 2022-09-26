@@ -1,5 +1,6 @@
-const { BrowserWindow } = require("electron");
+const { BrowserWindow, ipcMain } = require("electron");
 const GeneralTool = require("./generalTool");
+const DatabaseTool = require("./dbTool");
 
 class Windows {
   static #defaultSettings = {
@@ -29,8 +30,31 @@ class Windows {
     this.#sourceCodeWindow.loadURL("https://github.com/DragunWF/QuickNotes");
   }
 
-  static changeCurrentWindow(page) {
+  static loadCategoriesWindow() {
+    this.#changeCurrentWindow("categories", "load:categories");
+  }
+
+  static loadNoteWindow() {
+    this.#changeCurrentWindow("note", "load:note");
+  }
+
+  static #changeCurrentWindow(page, loadSignal = null, noteID = null) {
     const currentWindow = BrowserWindow.getFocusedWindow();
+    let data = null;
+    if (loadSignal) {
+      const signalType = loadSignal.split(":")[1];
+      switch (signalType) {
+        case "note":
+          data = DatabaseTool.getNote(noteID);
+          break;
+        case "categories":
+          data = DatabaseTool.getNoteCategories();
+          break;
+        case "stats":
+          break;
+      }
+      currentWindow.webContents.send(loadSignal, data);
+    }
     currentWindow.loadURL(GeneralTool.getPagePath(page));
   }
 
