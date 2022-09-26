@@ -25,9 +25,14 @@ ipcMain.on("window:categories", () => {
   console.log("Entered categories window!");
 });
 
+ipcMain.on("window:category", (event, categoryID) => {
+  Windows.loadCategoryWindow(categoryID);
+  console.log(`Entered a category window! (ID: ${categoryID})`);
+});
+
 ipcMain.on("window:note", (event, noteID) => {
   Windows.loadNoteWindow(noteID);
-  console.log(`Entered a note window! (ID:${noteID})`);
+  console.log(`Entered a note window! (ID: ${noteID})`);
 });
 
 ipcMain.on("quit", () => {
