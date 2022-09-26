@@ -66,3 +66,7 @@ body {
   text-indent: 0;
   list-style-type: none;
 }
+
+#loadingText {
+  font-style: italic;
+}
