@@ -37,7 +37,7 @@ ipcRenderer.on("load:categories", async (event, data) => {
          </li>`
       );
     }
-    createEvents();
+    createEvents("category");
   } else {
     const tag = "<li>No categories, click add to make one</li>";
     categories.append(tag);
@@ -58,5 +58,9 @@ ipcRenderer.on("load:category", async (event, data) => {
         </li>`
       );
     }
+    createEvents("note");
+  } else {
+    const tag = `<li>No notes in this category, click add to add a note</li>`;
+    notes.append(tag);
   }
 });
