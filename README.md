@@ -6,4 +6,4 @@ Just a personal note taking desktop application that runs on Windows, Linux, and
 
 ## Status
 
-**Currently still in development**
+**Currently still in development**. Not complete.
